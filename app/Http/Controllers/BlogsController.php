@@ -2,8 +2,8 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
 use Illuminate\Http\Request;
+use App\Blogs;
 
 class BlogsController extends Controller {
 
@@ -14,7 +14,11 @@ class BlogsController extends Controller {
 	 */
 	public function index()
 	{
-		//
+		$blogs=Blogs::get();
+
+		foreach ($blogs as $blog) {
+			echo json_encode($blog);
+		}
 	}
 
 	/**
